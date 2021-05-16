@@ -1,7 +1,6 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles'
 
 export default createMuiTheme({
- 
   breakpoints: {
     values: {
       xs: 0,
@@ -12,8 +11,7 @@ export default createMuiTheme({
     },
   },
   overrides: {
-
-      MuiInput: {
+    MuiInput: {
       input: {
         '&:-webkit-autofill': {
           '-webkit-box-shadow': '0 0 0 30px white inset !important',
@@ -38,7 +36,7 @@ export default createMuiTheme({
           width: '100%',
           height: '100%',
         },
-        
+      },
     },
   },
-}});
+})

@@ -6,7 +6,7 @@ import { isActionOf } from 'typesafe-actions'
 
 import { RootState } from '../reducers'
 import { actions, ActionsType } from '..'
-import * as API from '../../services'
+import * as API from '../../services/Api'
 
 export const weatherGetEpic: Epic<ActionsType, ActionsType, RootState, typeof API> = (
   action$,
@@ -14,13 +14,13 @@ export const weatherGetEpic: Epic<ActionsType, ActionsType, RootState, typeof AP
   { getWeather }
 ) =>
   action$.pipe(
-    filter(isActionOf(actions.weatherGetAction)),
-    exhaustMap((action) =>
+    filter(isActionOf(actions.weatherGetAction as any)),
+    exhaustMap((action: any) =>
       from(getWeather(action.payload.lat, action.payload.lng)).pipe(
         map(actions.weatherSetAction),
-        catchError((error) => of(actions.weatherErrorAction(error)))
+        catchError((error) => of(actions.weatherErrorAction()))
       )
     )
-  )
+  ) as any
 
 export default [weatherGetEpic]

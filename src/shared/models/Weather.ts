@@ -1,16 +1,16 @@
-export interface WeatherType {
-  coord: {
+export default class Weather {
+  public coord: {
     lon: number
     lat: number
   }
-  weather: {
+  public weather: {
     id: number
     main: string
     description: string
     icon: string
   }[]
-  base: string
-  main: {
+  public base: string
+  public main: {
     temp: number
     pressure: number
     humidity: number
@@ -19,22 +19,25 @@ export interface WeatherType {
     sea_level: number
     grnd_level: number
   }
-
-  wind: {
+  public wind: {
     speed: number
     deg: number
   }
-  clouds: {
+  public clouds: {
     all: number
   }
-  dt: number
-  sys: {
+  public dt: number
+  public sys: {
     message: number
     country: string
     sunrise: number
     sunset: number
   }
-  id: number
-  name: string
-  cod: number
+  public id: number
+  public name: string
+  public cod: number
+
+  constructor(args?: {}) {
+    Object.assign(this, args)
+  }
 }

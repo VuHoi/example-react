@@ -10,6 +10,6 @@ const initialState = {
 }
 
 export const mapReducer = createReducer<MapState, ActionsType>(initialState).handleAction(
-  actions.mapReadyAction,
-  (state: any) => ({ ...state, ready: true })
+  actions.mapReadyAction as any,
+  (state) => ({ ...state, ready: true })
 )

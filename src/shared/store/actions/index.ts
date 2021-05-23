@@ -1,5 +1,5 @@
 import { createAction } from 'typesafe-actions'
-import { WeatherType } from '../../models/Weather'
+import Weather from '../../models/Weather'
 import { WEATHER_GET, WEATHER_SET, MAP_READY, WEATHER_ERROR } from '../constants'
 
 export const weatherGetAction = createAction(
@@ -9,7 +9,7 @@ export const weatherGetAction = createAction(
 
 export const weatherSetAction = createAction(
   WEATHER_SET,
-  (resolve) => (weather: WeatherType) => resolve(weather)
+  (resolve) => (weather: Weather) => resolve(weather)
 )
 
 export const weatherErrorAction = createAction(

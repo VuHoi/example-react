@@ -9,8 +9,8 @@ export type RootState = {
 }
 
 const reducers = combineReducers({
-  weather: weatherReducer,
-  map: mapReducer,
+  weather: weatherReducer as any,
+  map: mapReducer as any,
 })
 
 export default reducers
